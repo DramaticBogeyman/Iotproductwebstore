@@ -4,23 +4,29 @@ import { ProductCard } from './ProductCard';
 
 interface ProductListProps {
   onAddToCart: (product: Product) => void;
+  onProductClick: (product: Product) => void;
 }
 
-export function ProductList({ onAddToCart }: ProductListProps) {
-  const [filter, setFilter] = React.useState('All');
+export function ProductList({ onAddToCart, onProductClick }: ProductListProps) {
+  const [filter, setFilter] = React.useState('همه');
   
-  const categories = ['All', ...Array.from(new Set(products.map(p => p.category)))];
+  const categories = ['همه', ...Array.from(new Set(products.map(p => p.category)))];
 
-  const filteredProducts = filter === 'All' 
+  const filteredProducts = filter === 'همه' 
     ? products 
     : products.filter(p => p.category === filter);
 
+  const handleAddToCart = (e: React.MouseEvent, product: Product) => {
+    e.stopPropagation();
+    onAddToCart(product);
+  };
+
   return (
-    <div id="products" className="py-24 bg-gray-50">
+    <div id="products" className="py-24 bg-gray-50 font-[Vazirmatn]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Our Smart Collection</h2>
-          <p className="mt-4 text-xl text-gray-500">Discover devices designed to make your life simpler and safer.</p>
+          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">مجموعه هوشمند ما</h2>
+          <p className="mt-4 text-xl text-gray-500">دستگاه‌هایی که برای ساده‌تر و ایمن‌تر کردن زندگی شما طراحی شده‌اند.</p>
         </div>
 
         <div className="flex justify-center mb-12 flex-wrap gap-4">
@@ -44,7 +50,8 @@ export function ProductList({ onAddToCart }: ProductListProps) {
             <ProductCard 
               key={product.id} 
               product={product} 
-              onAddToCart={onAddToCart} 
+              onAddToCart={handleAddToCart}
+              onClick={onProductClick}
             />
           ))}
         </div>

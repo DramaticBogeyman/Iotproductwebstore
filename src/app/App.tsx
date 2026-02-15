@@ -4,6 +4,7 @@ import { Hero } from './components/Hero';
 import { ProductList } from './components/ProductList';
 import { Footer } from './components/Footer';
 import { CartDrawer } from './components/CartDrawer';
+import { ProductDetail } from './components/ProductDetail';
 import { Product } from './data/products';
 import { Toaster, toast } from 'sonner';
 
@@ -15,19 +16,20 @@ export default function App() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState('home');
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const addToCart = (product: Product) => {
     setCartItems(prev => {
       const existing = prev.find(item => item.id === product.id);
       if (existing) {
-        toast.success(`Updated quantity for ${product.name}`);
+        toast.success(`تعداد ${product.name} افزایش یافت`);
         return prev.map(item => 
           item.id === product.id 
             ? { ...item, quantity: item.quantity + 1 } 
             : item
         );
       }
-      toast.success(`Added ${product.name} to cart`);
+      toast.success(`${product.name} به سبد خرید اضافه شد`);
       return [...prev, { ...product, quantity: 1 }];
     });
     setIsCartOpen(true);
@@ -45,17 +47,28 @@ export default function App() {
 
   const removeItem = (id: string) => {
     setCartItems(prev => prev.filter(item => item.id !== id));
-    toast.info('Item removed from cart');
+    toast.info('محصول از سبد خرید حذف شد');
   };
 
   const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+
+  const handleProductClick = (product: Product) => {
+    setSelectedProduct(product);
+    setCurrentPage('product-detail');
+    window.scrollTo(0, 0);
+  };
+
+  const handleNavigate = (page: string) => {
+    setCurrentPage(page);
+    window.scrollTo(0, 0);
+  };
 
   const scrollToProducts = () => {
     const productsSection = document.getElementById('products');
     if (productsSection) {
       productsSection.scrollIntoView({ behavior: 'smooth' });
     } else {
-      setCurrentPage('home');
+      handleNavigate('home');
       setTimeout(() => {
         document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
       }, 100);
@@ -63,25 +76,33 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-indigo-100 selection:text-indigo-900">
-      <Toaster position="top-center" richColors />
+    <div dir="rtl" className="min-h-screen bg-white font-[Vazirmatn] text-gray-900 selection:bg-indigo-100 selection:text-indigo-900 text-right">
+      <Toaster position="top-center" richColors dir="rtl" />
       
       <Navbar 
         cartCount={cartCount} 
         onCartClick={() => setIsCartOpen(true)}
-        onNavigate={(page) => setCurrentPage(page)}
+        onNavigate={handleNavigate}
       />
 
-      <main className="pt-16">
+      <main className="pt-16 min-h-screen">
         {currentPage === 'home' && (
           <>
             <Hero onShopNow={scrollToProducts} />
-            <ProductList onAddToCart={addToCart} />
+            <ProductList onAddToCart={addToCart} onProductClick={handleProductClick} />
           </>
         )}
         
         {currentPage === 'products' && (
-          <ProductList onAddToCart={addToCart} />
+          <ProductList onAddToCart={addToCart} onProductClick={handleProductClick} />
+        )}
+
+        {currentPage === 'product-detail' && selectedProduct && (
+          <ProductDetail 
+            product={selectedProduct} 
+            onAddToCart={addToCart}
+            onBack={() => handleNavigate('products')}
+          />
         )}
       </main>
 

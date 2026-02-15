@@ -33,15 +33,15 @@ export function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantity, onRem
             className="fixed inset-0 bg-black z-40"
           />
           <motion.div
-            initial={{ x: '100%' }}
+            initial={{ x: '-100%' }} // Coming from the left side for RTL feel, or keep right. Actually, drawers are often LTR in standard UI libs even in RTL, but let's try Left side which corresponds to 'start' in LTR but 'end' in RTL? No, let's just stick to Right side but use RTL text.
             animate={{ x: 0 }}
-            exit={{ x: '100%' }}
+            exit={{ x: '-100%' }}
             transition={{ type: 'spring', damping: 20 }}
-            className="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white shadow-2xl z-50 flex flex-col"
+            className="fixed top-0 left-0 h-full w-full sm:w-[400px] bg-white shadow-2xl z-50 flex flex-col font-[Vazirmatn]"
           >
             <div className="p-6 border-b border-gray-100 flex items-center justify-between">
               <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                <ShoppingCart className="w-5 h-5" /> Your Cart
+                <ShoppingCart className="w-5 h-5" /> سبد خرید
               </h2>
               <button 
                 onClick={onClose}
@@ -57,12 +57,12 @@ export function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantity, onRem
                   <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center">
                     <ShoppingCart className="w-8 h-8 text-gray-300" />
                   </div>
-                  <p className="text-gray-500 text-lg">Your cart is empty</p>
+                  <p className="text-gray-500 text-lg">سبد خرید شما خالی است</p>
                   <button 
                     onClick={onClose}
                     className="text-indigo-600 font-medium hover:text-indigo-700 hover:underline"
                   >
-                    Start Shopping
+                    شروع خرید
                   </button>
                 </div>
               ) : (
@@ -77,10 +77,10 @@ export function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantity, onRem
                     </div>
                     <div className="flex-1 flex flex-col justify-between">
                       <div>
-                        <h3 className="font-semibold text-gray-900 line-clamp-1">{item.name}</h3>
-                        <p className="text-sm text-gray-500">${item.price.toFixed(2)}</p>
+                        <h3 className="font-semibold text-gray-900 line-clamp-1 text-right">{item.name}</h3>
+                        <p className="text-sm text-gray-500 text-right">${item.price.toFixed(2)}</p>
                       </div>
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between mt-2">
                         <div className="flex items-center gap-2 bg-white rounded-lg border border-gray-200 p-1">
                           <button 
                             onClick={() => onUpdateQuantity(item.id, -1)}
@@ -113,12 +113,12 @@ export function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantity, onRem
             {cartItems.length > 0 && (
               <div className="p-6 border-t border-gray-100 bg-white space-y-4">
                 <div className="flex items-center justify-between text-lg font-bold text-gray-900">
-                  <span>Subtotal</span>
+                  <span>جمع کل</span>
                   <span>${subtotal.toFixed(2)}</span>
                 </div>
-                <p className="text-xs text-gray-500 text-center">Shipping and taxes calculated at checkout</p>
+                <p className="text-xs text-gray-500 text-center">هزینه ارسال و مالیات در مرحله پرداخت محاسبه می‌شود</p>
                 <button className="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-indigo-700 active:scale-[0.98] transition-all shadow-lg shadow-indigo-200">
-                  Checkout
+                  تسویه حساب
                 </button>
               </div>
             )}

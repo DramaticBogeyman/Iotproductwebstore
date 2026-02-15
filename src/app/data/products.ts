@@ -11,56 +11,56 @@ export interface Product {
 export const products: Product[] = [
   {
     id: '1',
-    name: 'Nexus Hub Gen 2',
+    name: 'هاب مرکزی نکسوس (Nexus Hub Gen 2)',
     price: 129.99,
-    description: 'The central brain of your smart home. Connects all your devices with seamless integration and voice control.',
+    description: 'مغز متفکر خانه هوشمند شما. تمام دستگاه‌های شما را با یکپارچگی کامل و کنترل صوتی به هم متصل می‌کند.',
     image: 'https://images.unsplash.com/photo-1661792775022-33203d0d0427?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFydCUyMGhvbWUlMjBodWIlMjBkZXZpY2UlMjB3aGl0ZSUyMGJhY2tncm91bmR8ZW58MXx8fHwxNzcxMTYyNTQxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    category: 'Hubs',
-    features: ['Voice Control', 'Zigbee & Z-Wave', 'Touch Screen Display', 'Matter Support']
+    category: 'هاب‌ها',
+    features: ['کنترل صوتی', 'پشتیبانی از زیگبی و زد-ویو', 'صفحه نمایش لمسی', 'پشتیبانی از مَتِر']
   },
   {
     id: '2',
-    name: 'Lumina Smart Bulb',
+    name: 'لامپ هوشمند لومینا (Lumina)',
     price: 34.99,
-    description: '16 million colors to set the perfect mood. Energy efficient and fully dimmable via app or voice.',
+    description: '۱۶ میلیون رنگ برای تنظیم حال و هوای عالی. کم‌مصرف و کاملاً قابل تنظیم نور از طریق برنامه یا صدا.',
     image: 'https://images.unsplash.com/photo-1711006155490-ec01a0ecf0de?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFydCUyMGxpZ2h0JTIwYnVsYiUyMGNvbG9yfGVufDF8fHx8MTc3MTE2MjU0MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    category: 'Lighting',
-    features: ['16 Million Colors', 'Voice Compatible', 'Schedule & Timers', 'Energy Efficient']
+    category: 'روشنایی',
+    features: ['۱۶ میلیون رنگ', 'سازگار با فرمان صوتی', 'زمان‌بندی و تایمر', 'مصرف انرژی بهینه']
   },
   {
     id: '3',
-    name: 'Sentinel Pro Camera',
+    name: 'دوربین امنیتی سنتینل (Sentinel Pro)',
     price: 199.99,
-    description: 'Keep an eye on your home 24/7 with 4K resolution, night vision, and AI-powered person detection.',
+    description: 'با رزولوشن 4K، دید در شب رنگی و تشخیص انسان با هوش مصنوعی، ۲۴ ساعته مراقب خانه خود باشید.',
     image: 'https://images.unsplash.com/photo-1769847933914-a29c8e17aae9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob21lJTIwc2VjdXJpdHklMjBjYW1lcmElMjBtb2Rlcm58ZW58MXx8fHwxNzcxMTYyNTQxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    category: 'Security',
-    features: ['4K HDR Video', 'Color Night Vision', '2-Way Audio', 'AI Detection']
+    category: 'امنیتی',
+    features: ['ویدیو 4K HDR', 'دید در شب رنگی', 'صدای دوطرفه', 'تشخیص هوشمند']
   },
   {
     id: '4',
-    name: 'EcoThermostat',
+    name: 'ترموستات اکو (EcoThermostat)',
     price: 249.99,
-    description: 'Learns your schedule and adjusts the temperature automatically to save energy without sacrificing comfort.',
+    description: 'برنامه شما را یاد می‌گیرد و دما را به طور خودکار تنظیم می‌کند تا بدون فدا کردن راحتی، در مصرف انرژی صرفه‌جویی کنید.',
     image: 'https://images.unsplash.com/photo-1770625467384-304e461ef1be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFydCUyMHRoZXJtb3N0YXQlMjB3YWxsfGVufDF8fHx8MTc3MTE2MjU0MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    category: 'Climate',
-    features: ['Smart Scheduling', 'Remote Access', 'Energy Reports', 'Multi-Room Sensors']
+    category: 'تهویه مطبوع',
+    features: ['زمان‌بندی هوشمند', 'دسترسی از راه دور', 'گزارش‌های مصرف انرژی', 'سنسورهای چند اتاقی']
   },
   {
     id: '5',
-    name: 'SecureLock Touch',
+    name: 'قفل هوشمند (SecureLock Touch)',
     price: 179.99,
-    description: 'Unlock your door with your fingerprint, keypad, or smartphone. Never worry about lost keys again.',
+    description: 'در را با اثر انگشت، صفحه کلید یا تلفن هوشمند باز کنید. دیگر نگران گم کردن کلیدها نباشید.',
     image: 'https://images.unsplash.com/photo-1637241613318-646f2c2a854a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFydCUyMGRvb3IlMjBsb2NrJTIwZGlnaXRhbHxlbnwxfHx8fDE3NzExNjI1NDF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    category: 'Security',
-    features: ['Fingerprint ID', 'Auto-Lock', 'Activity Log', 'Emergency Key Support']
+    category: 'امنیتی',
+    features: ['شناسایی اثر انگشت', 'قفل خودکار', 'گزارش فعالیت', 'کلید اضطراری']
   },
   {
     id: '6',
-    name: 'Motion Sense',
+    name: 'سنسور حرکتی (Motion Sense)',
     price: 29.99,
-    description: 'Detects movement in any room to trigger lights, alarms, or notifications on your phone.',
+    description: 'حرکت در هر اتاقی را تشخیص می‌دهد تا چراغ‌ها، آلارم‌ها یا اعلان‌ها را روی گوشی شما فعال کند.',
     image: 'https://images.unsplash.com/photo-1753039495488-434a2fe53e41?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFydCUyMG1vdGlvbiUyMHNlbnNvciUyMGRldmljZXxlbnwxfHx8fDE3NzExNjI1NDF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    category: 'Sensors',
-    features: ['Wide Angle Detection', 'Long Battery Life', 'Instant Alerts', 'Compact Design']
+    category: 'سنسورها',
+    features: ['تشخیص زاویه باز', 'عمر باتری طولانی', 'هشدارهای فوری', 'طراحی جمع و جور']
   }
 ];
