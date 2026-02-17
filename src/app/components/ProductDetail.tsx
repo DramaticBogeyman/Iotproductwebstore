@@ -2,6 +2,7 @@ import React from 'react';
 import { Product } from '../data/products';
 import { motion } from 'motion/react';
 import { ShoppingCart, ArrowRight, Check, Shield, Truck } from 'lucide-react';
+import { formatPrice } from '../utils/format';
 
 interface ProductDetailProps {
   product: Product;
@@ -15,7 +16,7 @@ export function ProductDetail({ product, onAddToCart, onBack }: ProductDetailPro
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -20 }}
-      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
+      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 font-[Vazirmatn]"
     >
       <button 
         onClick={onBack}
@@ -44,7 +45,7 @@ export function ProductDetail({ product, onAddToCart, onBack }: ProductDetailPro
           </div>
           
           <h1 className="text-4xl font-extrabold text-gray-900 mb-4">{product.name}</h1>
-          <p className="text-2xl font-bold text-indigo-600 mb-6">${product.price.toFixed(2)}</p>
+          <p className="text-2xl font-bold text-indigo-600 mb-6">{formatPrice(product.price)}</p>
           
           <p className="text-lg text-gray-600 mb-8 leading-relaxed">
             {product.description}

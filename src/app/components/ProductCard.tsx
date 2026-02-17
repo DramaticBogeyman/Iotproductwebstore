@@ -2,6 +2,7 @@ import React from 'react';
 import { Product } from '../data/products';
 import { motion } from 'motion/react';
 import { Plus } from 'lucide-react';
+import { formatPrice } from '../utils/format';
 
 interface ProductCardProps {
   product: Product;
@@ -40,7 +41,7 @@ export function ProductCard({ product, onAddToCart, onClick }: ProductCardProps)
         </div>
         
         <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
-          <span className="text-xl font-bold text-indigo-600">${product.price.toFixed(2)}</span>
+          <span className="text-xl font-bold text-indigo-600">{formatPrice(product.price)}</span>
           <button 
             onClick={(e) => onAddToCart(e, product)}
             className="flex items-center gap-2 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors active:scale-95 z-10 relative"

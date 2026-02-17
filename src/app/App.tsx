@@ -5,6 +5,10 @@ import { ProductList } from './components/ProductList';
 import { Footer } from './components/Footer';
 import { CartDrawer } from './components/CartDrawer';
 import { ProductDetail } from './components/ProductDetail';
+import { SolutionsPage } from './components/SolutionsPage';
+import { SupportPage } from './components/SupportPage';
+import { UserProfilePage } from './components/UserProfilePage';
+import { CheckoutPage } from './components/CheckoutPage';
 import { Product } from './data/products';
 import { Toaster, toast } from 'sonner';
 
@@ -61,18 +65,32 @@ export default function App() {
   const handleNavigate = (page: string) => {
     setCurrentPage(page);
     window.scrollTo(0, 0);
+    if (page === 'home') {
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 100);
+    }
   };
 
   const scrollToProducts = () => {
-    const productsSection = document.getElementById('products');
-    if (productsSection) {
-      productsSection.scrollIntoView({ behavior: 'smooth' });
-    } else {
+    if (currentPage !== 'home') {
       handleNavigate('home');
       setTimeout(() => {
         document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
       }, 100);
+    } else {
+      document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleCheckout = () => {
+    setIsCartOpen(false);
+    handleNavigate('checkout');
+  };
+
+  const handleOrderSuccess = () => {
+    setCartItems([]);
+    handleNavigate('profile');
   };
 
   return (
@@ -104,6 +122,19 @@ export default function App() {
             onBack={() => handleNavigate('products')}
           />
         )}
+
+        {currentPage === 'solutions' && <SolutionsPage />}
+        
+        {currentPage === 'support' && <SupportPage />}
+        
+        {currentPage === 'profile' && <UserProfilePage />}
+        
+        {currentPage === 'checkout' && (
+          <CheckoutPage 
+            cartItems={cartItems} 
+            onOrderSuccess={handleOrderSuccess} 
+          />
+        )}
       </main>
 
       <Footer />
@@ -114,6 +145,7 @@ export default function App() {
         cartItems={cartItems} 
         onUpdateQuantity={updateQuantity}
         onRemoveItem={removeItem}
+        onCheckout={handleCheckout}
       />
     </div>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ShoppingCart, X, Plus, Minus, Trash2 } from 'lucide-react';
+import { formatPrice } from '../utils/format';
 
 interface CartItem {
   id: string;
@@ -16,9 +17,10 @@ interface CartDrawerProps {
   cartItems: CartItem[];
   onUpdateQuantity: (id: string, delta: number) => void;
   onRemoveItem: (id: string) => void;
+  onCheckout: () => void;
 }
 
-export function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantity, onRemoveItem }: CartDrawerProps) {
+export function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantity, onRemoveItem, onCheckout }: CartDrawerProps) {
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
@@ -33,7 +35,7 @@ export function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantity, onRem
             className="fixed inset-0 bg-black z-40"
           />
           <motion.div
-            initial={{ x: '-100%' }} // Coming from the left side for RTL feel, or keep right. Actually, drawers are often LTR in standard UI libs even in RTL, but let's try Left side which corresponds to 'start' in LTR but 'end' in RTL? No, let's just stick to Right side but use RTL text.
+            initial={{ x: '-100%' }}
             animate={{ x: 0 }}
             exit={{ x: '-100%' }}
             transition={{ type: 'spring', damping: 20 }}
@@ -78,7 +80,7 @@ export function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantity, onRem
                     <div className="flex-1 flex flex-col justify-between">
                       <div>
                         <h3 className="font-semibold text-gray-900 line-clamp-1 text-right">{item.name}</h3>
-                        <p className="text-sm text-gray-500 text-right">${item.price.toFixed(2)}</p>
+                        <p className="text-sm text-gray-500 text-right">{formatPrice(item.price)}</p>
                       </div>
                       <div className="flex items-center justify-between mt-2">
                         <div className="flex items-center gap-2 bg-white rounded-lg border border-gray-200 p-1">
@@ -114,10 +116,16 @@ export function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantity, onRem
               <div className="p-6 border-t border-gray-100 bg-white space-y-4">
                 <div className="flex items-center justify-between text-lg font-bold text-gray-900">
                   <span>جمع کل</span>
-                  <span>${subtotal.toFixed(2)}</span>
+                  <span>{formatPrice(subtotal)}</span>
                 </div>
                 <p className="text-xs text-gray-500 text-center">هزینه ارسال و مالیات در مرحله پرداخت محاسبه می‌شود</p>
-                <button className="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-indigo-700 active:scale-[0.98] transition-all shadow-lg shadow-indigo-200">
+                <button 
+                  onClick={() => {
+                    onClose();
+                    onCheckout();
+                  }}
+                  className="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-indigo-700 active:scale-[0.98] transition-all shadow-lg shadow-indigo-200"
+                >
                   تسویه حساب
                 </button>
               </div>

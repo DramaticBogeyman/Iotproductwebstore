@@ -12,7 +12,7 @@ export const products: Product[] = [
   {
     id: '1',
     name: 'هاب مرکزی نکسوس (Nexus Hub Gen 2)',
-    price: 129.99,
+    price: 6500000,
     description: 'مغز متفکر خانه هوشمند شما. تمام دستگاه‌های شما را با یکپارچگی کامل و کنترل صوتی به هم متصل می‌کند.',
     image: 'https://images.unsplash.com/photo-1661792775022-33203d0d0427?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFydCUyMGhvbWUlMjBodWIlMjBkZXZpY2UlMjB3aGl0ZSUyMGJhY2tncm91bmR8ZW58MXx8fHwxNzcxMTYyNTQxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     category: 'هاب‌ها',
@@ -21,7 +21,7 @@ export const products: Product[] = [
   {
     id: '2',
     name: 'لامپ هوشمند لومینا (Lumina)',
-    price: 34.99,
+    price: 850000,
     description: '۱۶ میلیون رنگ برای تنظیم حال و هوای عالی. کم‌مصرف و کاملاً قابل تنظیم نور از طریق برنامه یا صدا.',
     image: 'https://images.unsplash.com/photo-1711006155490-ec01a0ecf0de?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFydCUyMGxpZ2h0JTIwYnVsYiUyMGNvbG9yfGVufDF8fHx8MTc3MTE2MjU0MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     category: 'روشنایی',
@@ -30,7 +30,7 @@ export const products: Product[] = [
   {
     id: '3',
     name: 'دوربین امنیتی سنتینل (Sentinel Pro)',
-    price: 199.99,
+    price: 4200000,
     description: 'با رزولوشن 4K، دید در شب رنگی و تشخیص انسان با هوش مصنوعی، ۲۴ ساعته مراقب خانه خود باشید.',
     image: 'https://images.unsplash.com/photo-1769847933914-a29c8e17aae9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob21lJTIwc2VjdXJpdHklMjBjYW1lcmElMjBtb2Rlcm58ZW58MXx8fHwxNzcxMTYyNTQxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     category: 'امنیتی',
@@ -39,7 +39,7 @@ export const products: Product[] = [
   {
     id: '4',
     name: 'ترموستات اکو (EcoThermostat)',
-    price: 249.99,
+    price: 5800000,
     description: 'برنامه شما را یاد می‌گیرد و دما را به طور خودکار تنظیم می‌کند تا بدون فدا کردن راحتی، در مصرف انرژی صرفه‌جویی کنید.',
     image: 'https://images.unsplash.com/photo-1770625467384-304e461ef1be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFydCUyMHRoZXJtb3N0YXQlMjB3YWxsfGVufDF8fHx8MTc3MTE2MjU0MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     category: 'تهویه مطبوع',
@@ -48,7 +48,7 @@ export const products: Product[] = [
   {
     id: '5',
     name: 'قفل هوشمند (SecureLock Touch)',
-    price: 179.99,
+    price: 7900000,
     description: 'در را با اثر انگشت، صفحه کلید یا تلفن هوشمند باز کنید. دیگر نگران گم کردن کلیدها نباشید.',
     image: 'https://images.unsplash.com/photo-1637241613318-646f2c2a854a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFydCUyMGRvb3IlMjBsb2NrJTIwZGlnaXRhbHxlbnwxfHx8fDE3NzExNjI1NDF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     category: 'امنیتی',
@@ -57,7 +57,7 @@ export const products: Product[] = [
   {
     id: '6',
     name: 'سنسور حرکتی (Motion Sense)',
-    price: 29.99,
+    price: 950000,
     description: 'حرکت در هر اتاقی را تشخیص می‌دهد تا چراغ‌ها، آلارم‌ها یا اعلان‌ها را روی گوشی شما فعال کند.',
     image: 'https://images.unsplash.com/photo-1753039495488-434a2fe53e41?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFydCUyMG1vdGlvbiUyMHNlbnNvciUyMGRldmljZXxlbnwxfHx8fDE3NzExNjI1NDF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     category: 'سنسورها',
