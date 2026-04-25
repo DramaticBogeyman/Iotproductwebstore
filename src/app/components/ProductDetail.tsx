@@ -3,6 +3,8 @@ import { Product } from '../data/products';
 import { motion } from 'motion/react';
 import { ShoppingCart, ArrowRight, Check, Shield, Truck } from 'lucide-react';
 import { formatPrice } from '../utils/format';
+import { ProductViewer3D } from './ProductViewer3D';
+import { CatalogViewer } from './CatalogViewer';
 
 interface ProductDetailProps {
   product: Product;
@@ -89,6 +91,30 @@ export function ProductDetail({ product, onAddToCart, onBack }: ProductDetailPro
           </div>
         </div>
       </div>
+
+      {/* 3D Viewer and Catalog Section */}
+      {(product.model3D || product.packaging3D || product.catalogPDF) && (
+        <div className="mt-16 pt-16 border-t border-gray-200">
+          <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
+            اطلاعات تکمیلی محصول
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {(product.model3D || product.packaging3D) && (
+              <ProductViewer3D
+                productModel={product.model3D}
+                packagingModel={product.packaging3D}
+                productName={product.name}
+              />
+            )}
+            {product.catalogPDF && (
+              <CatalogViewer
+                catalogPDF={product.catalogPDF}
+                productName={product.name}
+              />
+            )}
+          </div>
+        </div>
+      )}
     </motion.div>
   );
 }
