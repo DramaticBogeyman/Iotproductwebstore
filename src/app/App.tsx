@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
+import { HeroSlideshow } from './components/HeroSlideshow';
 import { ProductList } from './components/ProductList';
 import { Footer } from './components/Footer';
 import { CartDrawer } from './components/CartDrawer';
@@ -109,7 +109,7 @@ export default function App() {
       <main className="pt-16 min-h-screen">
         {currentPage === 'home' && (
           <>
-            <Hero onShopNow={scrollToProducts} />
+            <HeroSlideshow onShopNow={scrollToProducts} />
             <FeaturesSection />
             <ProductList onAddToCart={addToCart} onProductClick={handleProductClick} />
             <BenefitsSection />
