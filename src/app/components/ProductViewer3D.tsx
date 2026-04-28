@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Cube, Package, RotateCw } from 'lucide-react';
+import { Box, Package, RotateCw } from 'lucide-react';
 
 interface ProductViewer3DProps {
   productModel?: string;
@@ -18,7 +18,7 @@ export function ProductViewer3D({ productModel, packagingModel, productName }: P
     <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
       <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-4">
         <h3 className="text-xl font-bold text-white flex items-center gap-2">
-          <Cube className="w-6 h-6" />
+          <Box className="w-6 h-6" />
           نمایش سه‌بعدی
         </h3>
       </div>
@@ -34,7 +34,7 @@ export function ProductViewer3D({ productModel, packagingModel, productName }: P
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               }`}
             >
-              <Cube className="w-4 h-4" />
+              <Box className="w-4 h-4" />
               محصول
             </button>
             <button
