@@ -11,6 +11,7 @@ import { UserProfilePage } from './components/UserProfilePage';
 import { CheckoutPage } from './components/CheckoutPage';
 import { FeaturesSection } from './components/FeaturesSection';
 import { BenefitsSection } from './components/BenefitsSection';
+import { AboutSection } from './components/AboutSection';
 import { CTASection } from './components/CTASection';
 import { Product } from './data/products';
 import { Toaster, toast } from 'sonner';
@@ -113,6 +114,7 @@ export default function App() {
             <FeaturesSection />
             <ProductList onAddToCart={addToCart} onProductClick={handleProductClick} />
             <BenefitsSection />
+            <AboutSection />
             <CTASection onShopNow={scrollToProducts} />
           </>
         )}
