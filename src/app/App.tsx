@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
-import { HeroSlideshow } from './components/HeroSlideshow';
+import { MinimalHero } from './components/MinimalHero';
 import { ProductList } from './components/ProductList';
 import { Footer } from './components/Footer';
 import { CartDrawer } from './components/CartDrawer';
 import { ProductDetail } from './components/ProductDetail';
 import { SolutionsPage } from './components/SolutionsPage';
+import { SoftwarePage } from './components/SoftwarePage';
 import { SupportPage } from './components/SupportPage';
 import { UserProfilePage } from './components/UserProfilePage';
 import { CheckoutPage } from './components/CheckoutPage';
@@ -110,12 +111,9 @@ export default function App() {
       <main className="pt-16 min-h-screen">
         {currentPage === 'home' && (
           <>
-            <HeroSlideshow onShopNow={scrollToProducts} />
-            <FeaturesSection />
+            <MinimalHero onShopNow={scrollToProducts} />
             <ProductList onAddToCart={addToCart} onProductClick={handleProductClick} />
-            <BenefitsSection />
             <AboutSection />
-            <CTASection onShopNow={scrollToProducts} />
           </>
         )}
         
@@ -132,7 +130,9 @@ export default function App() {
         )}
 
         {currentPage === 'solutions' && <SolutionsPage />}
-        
+
+        {currentPage === 'software' && <SoftwarePage />}
+
         {currentPage === 'support' && <SupportPage />}
         
         {currentPage === 'profile' && <UserProfilePage />}
