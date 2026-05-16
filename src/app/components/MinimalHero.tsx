@@ -8,8 +8,8 @@ interface MinimalHeroProps {
 
 export function MinimalHero({ onShopNow }: MinimalHeroProps) {
   return (
-    <div className="relative py-32 bg-white font-[Vazirmatn]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="relative min-h-screen flex items-center bg-white font-[Vazirmatn]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Text Content */}
           <motion.div

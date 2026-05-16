@@ -99,7 +99,7 @@ export default function App() {
   };
 
   return (
-    <div dir="rtl" className="min-h-screen bg-white font-[Vazirmatn] text-gray-900 selection:bg-indigo-100 selection:text-indigo-900 text-right">
+    <div dir="rtl" className="min-h-screen bg-white font-[Vazirmatn] text-gray-900 selection:bg-gray-200 selection:text-gray-900 text-right scroll-smooth">
       <Toaster position="top-center" richColors dir="rtl" />
       
       <Navbar 
